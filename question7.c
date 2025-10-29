@@ -1,66 +1,53 @@
+
 #include <stdio.h>
-int main(){
 
-int size = 6;
+int main() {
 
+    int size = 5; 
+    int column_width = 11; 
+    for (int i = 1; i <= size; i++) {
+        int chars_in_row = 2 * i - 1;
+        
+        int alpha_chars = (i == 5) ? 8 : chars_in_row; 
 
-   for (int i = 1; i <= size ; i++)
-   {
+        for (int j = i; j <= size; j++) {
+            printf(" ");
+        }
 
+        for (int j = 1; j <= chars_in_row; j++) {
+            printf("*");
+        }
 
-       for (int j = i; j <= size; j++)
-       {
-         printf(" ");
-       }
+        printf("   |"); 
 
-       for (int j = 1; j < i; j++)
-       {
-         printf("*");
-       }
+        int num_spaces = (column_width - chars_in_row) / 2;
+        for (int j = 1; j <= num_spaces; j++) {
+            printf(" ");
+        }
 
-       for (int j = 3; j <= i; j++)
-       {
-         printf("*");
-       }
-       
-      printf("\t | \t");
+        for (int j = 1; j <= chars_in_row; j++) {
+            printf("%d", j);
+        }
 
+        for (int j = 1; j <= num_spaces; j++) {
+            printf(" ");
+        }
 
-       
-       for (int j = i; j <= size; j++)
-       {
-         printf(" ");
-       }
+        printf("|   ");
 
-       for (int j = 1; j < i; j++)
-       {
-         printf("%d",j);
-       }
-          for (int j = 3; j <= i; j++)
-       {
-         printf("%d",j);
-       }
-      
-      printf("\t | \t");
+        int alpha_spaces = (column_width - alpha_chars) / 2;
+        for (int j = 1; j <= alpha_spaces; j++) {
+            printf(" ");
+        }
 
+        for (char j = 'A'; j < 'A' + alpha_chars; j++) {
+            printf("%c", j);
+        }
+        for (int j = 1; j <= alpha_spaces; j++) {
+            printf(" ");
+        }
 
-
-          for (int j = i; j <= size; j++)
-       {
-         printf(" ");
-       }
-       
-       for (char j = 'A'; j < 'A'+ i - 1 ; j++)
-       {
-         printf("%c",j);  
-       }
-
-         for (char j = 'A'; j < 'A'+ i ; j++)
-       {
-         printf("%c",j);  
-       }
-      
-     printf("\n");  
-   }
-   return 0;
+        printf("\n"); 
+    }
+    return 0;
 }
